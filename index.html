@@ -6,182 +6,8 @@
   <title>4D.RealEstate - Configurateur de Prestations</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --dior-black: #181818;
-      --dior-white: #fff;
-      --dior-grey: #f7f7f7;
-      --dior-gold: #e6cfa7;
-      --dior-border: #e5e5e5;
-      --dior-shadow: 0 4px 24px rgba(0,0,0,0.04);
-    }
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      background: var(--dior-grey);
-    }
-    body {
-      font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
-      color: var(--dior-black);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      background-color: var(--dior-grey);
-    }
-    .container {
-      background: var(--dior-white);
-      border-radius: 18px;
-      box-shadow: var(--dior-shadow);
-      padding: 2.5rem 2.2rem 2.2rem 2.2rem;
-      max-width: 480px;
-      width: 100%;
-      margin: 3rem auto 2rem auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    h1, h2, h3 {
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-align: center;
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-      color: var(--dior-black);
-      line-height: 1.25;
-    }
-    h1 { font-size: 2.1rem; margin-bottom: 2.1rem; }
-    h2 { font-size: 1.3rem; margin-bottom: 1.2rem; }
-    h3 { font-size: 1.1rem; margin-bottom: 1rem; }
-    .intro {
-      text-align: center;
-      color: #444;
-      font-size: 1.08rem;
-      margin-bottom: 2.2rem;
-      line-height: 1.7;
-      font-family: 'Playfair Display', serif;
-      max-width: 90%;
-    }
-    form {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-    label {
-      font-weight: 700;
-      font-size: 0.99rem;
-      letter-spacing: 0.04em;
-      color: var(--dior-black);
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-      margin-top: 0.6rem;
-      line-height: 1.4;
-    }
-    input[type="number"], select, input[type="email"] {
-      width: 100%;
-      padding: 0.7rem 1rem;
-      border-radius: 6px;
-      border: 1px solid var(--dior-border);
-      font-size: 1.08rem;
-      background: var(--dior-white);
-      color: var(--dior-black);
-      transition: border 0.2s;
-      font-family: 'Playfair Display', serif;
-      box-sizing: border-box;
-      margin-bottom: 0.2rem;
-      line-height: 1.5;
-    }
-    input[type="number"]:focus, select:focus, input[type="email"]:focus {
-      outline: none;
-      border-color: var(--dior-gold);
-    }
-    button {
-      margin: 2.2rem auto 1.2rem auto;
-      padding: 0.9rem 2.6rem;
-      font-size: 1.09rem;
-      background: var(--dior-white);
-      color: var(--dior-black);
-      border: 1.5px solid var(--dior-black);
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      transition: background 0.2s, color 0.2s, border 0.2s;
-      box-shadow: none;
-      display: block;
-    }
-    button:hover {
-      background: var(--dior-black);
-      color: var(--dior-white);
-      border-color: var(--dior-gold);
-    }
-    .advice, .explication {
-      background: var(--dior-grey);
-      border-left: 4px solid var(--dior-gold);
-      padding: 1.1rem 1.3rem;
-      margin-top: 1.5rem;
-      border-radius: 8px;
-      font-size: 1.02rem;
-      color: var(--dior-black);
-      font-family: 'Playfair Display', serif;
-      line-height: 1.7;
-      margin-bottom: 1.4rem;
-    }
-    .explication { border-color: var(--dior-black); }
-    .cta {
-      border-color: var(--dior-black);
-      background: var(--dior-white);
-      text-align: center;
-      font-size: 1.08rem;
-      margin-bottom: 1.2rem;
-      margin-top: 2.2rem;
-      font-family: 'Playfair Display', serif;
-      padding: 1.2rem;
-      border-radius: 10px;
-      border: 1px solid var(--dior-border);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.1rem;
-    }
-    .cta a {
-      display: inline-block;
-      min-width: 120px;
-      margin: 0.2em 0.6em 0 0.6em;
-      padding: 0.65em 1.3em;
-      border-radius: 6px;
-      border: 1.2px solid var(--dior-black);
-      background: var(--dior-white);
-      color: var(--dior-black);
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 1.08rem;
-      letter-spacing: 0.03em;
-      transition: background 0.2s, color 0.2s, border 0.2s;
-    }
-    .cta a:hover {
-      background: var(--dior-black);
-      color: var(--dior-gold);
-      border-color: var(--dior-gold);
-      text-decoration: none;
-    }
-    .chart-container {
-      max-width: 350px;
-      margin: 2rem auto 1rem auto;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-    @media (max-width: 600px) {
-      .container { padding: 1.2rem 0.3rem; }
-      h1 { font-size: 1.45rem; }
-      .chart-container { margin: 1.1rem auto 1rem auto; }
-      .cta { padding: 0.7rem; }
-    }
+    /* ... même CSS que précédemment ... */
+    /* (Garde le CSS du style Dior de ta dernière version) */
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -209,6 +35,27 @@
       <button type="submit">Calculer mon offre</button>
     </form>
 
+    <div id="packs" style="width:100%;max-width:440px;margin:2.5rem auto 0 auto;">
+      <h2 style="margin-bottom:0.7rem;">Nos Packs</h2>
+      <div style="display:flex;flex-direction:column;gap:1.1rem;">
+        <div class="advice" style="border-left:4px solid #e6cfa7;">
+          <b>Pack Essentiel</b> :<br>
+          5 photos immobilières<br>
+          <b>Prix : 100 €</b>
+        </div>
+        <div class="advice" style="border-left:4px solid #b7b7b7;">
+          <b>Pack Panorama</b> :<br>
+          5 photos immobilières + 3 photos drone<br>
+          <b>Prix : 190 €</b>
+        </div>
+        <div class="advice" style="border-left:4px solid #181818;">
+          <b>Pack Prestige</b> :<br>
+          5 photos immobilières + 3 photos drone + vidéo drone<br>
+          <b>Prix : 240 €</b> <span style="color:#43a047;">(5% de réduction incluse)</span>
+        </div>
+      </div>
+    </div>
+
     <div id="resultat"></div>
     <div class="chart-container">
       <canvas id="chart" width="350" height="350"></canvas>
@@ -229,165 +76,77 @@
       const nbDrone = Math.max(0, parseInt(document.getElementById('drone').value) || 0);
       const wantsVideo = document.getElementById('video').value === 'yes';
 
-      const minPhotos = 5;
-      const minDrone = 3;
+      // Tarifs
+      const prixPhotoUnitaire = 20;
+      const prixDroneUnitaire = 30;
 
-      const effectivePhotos = (nbPhotos === 0 || nbPhotos >= minPhotos) ? nbPhotos : minPhotos;
-      const effectiveDrone = (nbDrone === 0 || nbDrone >= minDrone) ? nbDrone : minDrone;
+      // Packs
+      const packEssentiel = { photos: 5, drone: 0, video: false, prix: 100, nom: "Pack Essentiel" };
+      const packPanorama = { photos: 5, drone: 3, video: false, prix: 190, nom: "Pack Panorama" };
+      const packPrestige = { photos: 5, drone: 3, video: true, prix: 240, nom: "Pack Prestige" };
 
-      const prixPhoto = 20 * effectivePhotos;
-      const prixDrone = 30 * effectiveDrone;
+      // Calcul du prix des options choisies
+      const prixPhoto = prixPhotoUnitaire * nbPhotos;
+      const prixDrone = prixDroneUnitaire * nbDrone;
+
+      // Calcul du prix vidéo drone selon la logique demandée
       let prixVideo = 0;
       if (wantsVideo) {
-        prixVideo = effectiveDrone > 0 ? 50 : 100;
+        if (nbPhotos > 0 && nbDrone > 0) {
+          prixVideo = 60;
+        } else if (nbPhotos > 0 || nbDrone > 0) {
+          prixVideo = 80;
+        } else {
+          prixVideo = 100;
+        }
       }
 
       let total = prixPhoto + prixDrone + prixVideo;
       let reduction = 0;
 
-      if (nbPhotos >= 10 && nbDrone >= 3 && wantsVideo) {
+      // Appliquer 5% de réduction si le client prend au moins 5 photos, 3 drone et la vidéo
+      if (nbPhotos >= 5 && nbDrone >= 3 && wantsVideo) {
         reduction = 0.05 * total;
         total = total * 0.95;
       }
 
-      // Génération du mail selon la demande
-      let mailType = "";
-      let packTexte = `
-Notre Pack Découverte comprend :
-- 5 photos professionnelles (20 €/photo)
-- 3 photos drone (30 €/photo)
-- Vidéo drone immersive (50 € seulement avec photos drone)
-Ce pack vous garantit une présentation optimale, jusqu'à 403 % de visibilité en plus pour votre annonce, et accélère la vente de votre bien.
-N'hésitez pas à nous contacter pour profiter de cette offre avantageuse !`;
-
-      let subject = "";
-      let body = "";
-
-      // Cas 1 : 0 partout
-      if (nbPhotos === 0 && nbDrone === 0 && !wantsVideo) {
-        mailType = `<div class="advice">
-          Vous n'avez sélectionné aucune prestation.<br>
-          ${packTexte}
-        </div>
-        <div style="height:1.5em"></div>
-        <a href="#" id="btnMail" class="cta" style="display:block;max-width:330px;margin:2.2em auto 0 auto;text-align:center;">Valider le pack découverte par mail</a>
-        `;
-        subject = "Demande pack découverte 4D.RealEstate";
-        body =
-`Bonjour,
-
-Vous n'avez sélectionné aucune prestation dans le configurateur.
-Pour une mise en valeur optimale de votre bien, nous vous recommandons notre Pack Découverte :
-
-- 5 photos professionnelles (20 €/photo)
-- 3 photos drone (30 €/photo)
-- Vidéo drone immersive (50 € seulement avec photos drone)
-
-Ce pack vous garantit une présentation optimale, jusqu'à 403 % de visibilité en plus pour votre annonce, et accélère la vente de votre bien.
-
-N'hésitez pas à nous contacter pour profiter de cette offre avantageuse !
-
-Cordialement,
-L’équipe 4D.RealEstate
-realestate4d@hotmail.com
-Tél : 0492 269 359
-Instagram : https://www.instagram.com/4d.reality?igsh=MTZtZ2llYzJlZ2Focw==
-`;
+      // Suggestion de pack selon la sélection
+      let suggestion = "";
+      if (nbPhotos >= 5 && nbDrone >= 3 && wantsVideo) {
+        suggestion = `<div class="advice" style="border-color:#43a047;">
+          🎉 <b>Bravo !</b> Vous bénéficiez de notre <b>Pack Prestige</b> avec 5% de réduction.<br>
+          C'est l'offre la plus complète pour sublimer votre bien.
+        </div>`;
+      } else if (nbPhotos >= 5 && nbDrone >= 3 && !wantsVideo) {
+        suggestion = `<div class="advice" style="border-color:#b7b7b7;">
+          💡 <b>Astuce :</b> Pour une présentation encore plus immersive, optez pour notre <b>Pack Prestige</b> (ajoutez la vidéo drone pour seulement 60 € de plus et bénéficiez d'une réduction de 5%).
+        </div>`;
+      } else if (nbPhotos >= 5 && nbDrone === 0 && !wantsVideo) {
+        suggestion = `<div class="advice" style="border-color:#e6cfa7;">
+          💡 <b>Astuce :</b> Essayez notre <b>Pack Panorama</b> pour profiter des vues aériennes et démarquer votre annonce.
+        </div>`;
+      } else if (nbPhotos === 0 && nbDrone === 0 && !wantsVideo) {
+        suggestion = `<div class="advice" style="border-color:#e6cfa7;">
+          💡 <b>Conseil :</b> Découvrez nos packs pour une valorisation optimale de votre bien.<br>
+          <b>Pack Essentiel</b> : 5 photos pro<br>
+          <b>Pack Panorama</b> : 5 photos pro + 3 drone<br>
+          <b>Pack Prestige</b> : 5 photos pro + 3 drone + vidéo drone<br>
+        </div>`;
+      } else if (wantsVideo && nbPhotos === 0 && nbDrone === 0) {
+        suggestion = `<div class="advice" style="border-color:#e6cfa7;">
+          💡 <b>Astuce :</b> La vidéo seule coûte 100 €. Ajoutez des photos classiques ou drone pour bénéficier d'une vidéo à 80 €, ou prenez le <b>Pack Prestige</b> pour la vidéo à 60 € !
+        </div>`;
       }
-      // Cas 2 : moins que le pack
-      else if (
-        (nbPhotos < 5 && nbPhotos > 0) ||
-        (nbDrone < 3 && nbDrone > 0) ||
-        (!wantsVideo) ||
-        (nbPhotos < 5 || nbDrone < 3 || !wantsVideo)
-      ) {
-        mailType = `<div class="advice">
-          Astuce : Pour maximiser l'impact de votre annonce et bénéficier d'une présentation professionnelle, notre <b>Pack Découverte</b> est l'option la plus avantageuse.<br>
-          ${packTexte}
-        </div>
-        <div style="height:1.5em"></div>
-        <a href="#" id="btnMail" class="cta" style="display:block;max-width:330px;margin:2.2em auto 0 auto;text-align:center;">Valider ma prestation par mail</a>
-        `;
-        subject = "Demande de prestation 4D.RealEstate";
-        body =
-`Bonjour,
-
-Merci d'avoir utilisé le configurateur 4D.RealEstate. Voici le récapitulatif de votre demande :
-
-- Photos classiques : ${nbPhotos} (tarif appliqué : ${effectivePhotos}) = ${prixPhoto} €
-- Photos drone : ${nbDrone} (tarif appliqué : ${effectiveDrone}) = ${prixDrone} €
-- Vidéo drone : ${wantsVideo ? 'Oui' : 'Non'} = ${prixVideo} €
-Prix total : ${total.toFixed(2)} €
-
-Astuce : Pour maximiser l'impact de votre annonce et bénéficier d'une présentation professionnelle, notre Pack Découverte est l'option la plus avantageuse :
-
-- 5 photos professionnelles (20 €/photo)
-- 3 photos drone (30 €/photo)
-- Vidéo drone immersive (50 € seulement avec photos drone)
-
-N'hésitez pas à nous contacter pour profiter de cette offre avantageuse !
-
-Cordialement,
-L’équipe 4D.RealEstate
-realestate4d@hotmail.com
-Tél : 0492 269 359
-Instagram : https://www.instagram.com/4d.reality?igsh=MTZtZ2llYzJlZ2Focw==
-`;
-      }
-      // Cas 3 : pack ou mieux
-      else {
-        mailType = `<div class="advice">
-          Félicitations ! Vous avez sélectionné une offre optimale pour valoriser votre bien.<br>
-          Vous bénéficiez d'une prestation complète et professionnelle, idéale pour vendre rapidement et au meilleur prix !
-        </div>
-        <div style="height:1.5em"></div>
-        <a href="#" id="btnMail" class="cta" style="display:block;max-width:330px;margin:2.2em auto 0 auto;text-align:center;">Valider ma prestation par mail</a>
-        `;
-        subject = "Validation de ma prestation 4D.RealEstate";
-        body =
-`Bonjour,
-
-Merci d'avoir utilisé le configurateur 4D.RealEstate. Voici le récapitulatif de votre demande :
-
-- Photos classiques : ${nbPhotos} (tarif appliqué : ${effectivePhotos}) = ${prixPhoto} €
-- Photos drone : ${nbDrone} (tarif appliqué : ${effectiveDrone}) = ${prixDrone} €
-- Vidéo drone : ${wantsVideo ? 'Oui' : 'Non'} = ${prixVideo} €
-${reduction > 0 ? '- Réduction : -' + reduction.toFixed(2) + ' €\n' : ''}
-Prix total : ${total.toFixed(2)} €
-
-Nous restons à votre disposition pour toute question ou pour finaliser votre commande.
-
-Cordialement,
-L’équipe 4D.RealEstate
-realestate4d@hotmail.com
-Tél : 0492 269 359
-Instagram : https://www.instagram.com/4d.reality?igsh=MTZtZ2llYzJlZ2Focw==
-`;
-      }
-
-      // Génère le mailto dynamique
-      mailtoLink = `mailto:realestate4d@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
       document.getElementById('resultat').innerHTML = `
         <h2>Résumé de votre prestation</h2>
-        <p>Photos classiques : ${nbPhotos} (tarif appliqué : ${effectivePhotos}) → <strong>${prixPhoto} €</strong></p>
-        <p>Photos drone : ${nbDrone} (tarif appliqué : ${effectiveDrone}) → <strong>${prixDrone} €</strong></p>
-        <p>Vidéo drone : ${wantsVideo ? 'Oui' : 'Non'} → <strong>${prixVideo} €</strong></p>
+        <p>Photos classiques : <strong>${nbPhotos}</strong> → <strong>${prixPhoto} €</strong></p>
+        <p>Photos drone : <strong>${nbDrone}</strong> → <strong>${prixDrone} €</strong></p>
+        <p>Vidéo drone : <strong>${wantsVideo ? 'Oui' : 'Non'}</strong> → <strong>${prixVideo} €</strong></p>
         ${reduction > 0 ? `<p>Réduction : <strong>-${reduction.toFixed(2)} €</strong></p>` : ''}
         <h3>Prix total : <strong>${total.toFixed(2)} €</strong></h3>
-        ${mailType}
+        ${suggestion}
       `;
-
-      // Ajoute l'événement sur le bouton mail
-      setTimeout(() => {
-        const btnMail = document.getElementById('btnMail');
-        if(btnMail) {
-          btnMail.onclick = function(e) {
-            e.preventDefault();
-            window.location.href = mailtoLink;
-          };
-        }
-      }, 100);
 
       // Graphique
       const ctx = document.getElementById('chart').getContext('2d');
