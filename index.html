@@ -6,8 +6,199 @@
   <title>4D.RealEstate - Configurateur de Prestations</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* ... même CSS que précédemment ... */
-    /* (Garde le CSS du style Dior de ta dernière version) */
+    :root {
+      --dior-black: #181818;
+      --dior-white: #fff;
+      --dior-grey: #f7f7f7;
+      --dior-gold: #e6cfa7;
+      --dior-border: #e5e5e5;
+      --dior-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: var(--dior-grey);
+    }
+    body {
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+      color: var(--dior-black);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      background-color: var(--dior-grey);
+    }
+    .container {
+      background: var(--dior-white);
+      border-radius: 18px;
+      box-shadow: var(--dior-shadow);
+      padding: 2.5rem 2.2rem 2.2rem 2.2rem;
+      max-width: 480px;
+      width: 100%;
+      margin: 3rem auto 2rem auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1, h2, h3 {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      color: var(--dior-black);
+      line-height: 1.25;
+    }
+    h1 { font-size: 2.1rem; margin-bottom: 2.1rem; }
+    h2 { font-size: 1.3rem; margin-bottom: 1.2rem; }
+    h3 { font-size: 1.1rem; margin-bottom: 1rem; }
+    .intro {
+      text-align: center;
+      color: #444;
+      font-size: 1.08rem;
+      margin-bottom: 2.2rem;
+      line-height: 1.7;
+      font-family: 'Playfair Display', serif;
+      max-width: 90%;
+    }
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    label {
+      font-weight: 700;
+      font-size: 0.99rem;
+      letter-spacing: 0.04em;
+      color: var(--dior-black);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+      margin-top: 0.6rem;
+      line-height: 1.4;
+    }
+    input[type="number"], select, input[type="email"] {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--dior-border);
+      font-size: 1.08rem;
+      background: var(--dior-white);
+      color: var(--dior-black);
+      transition: border 0.2s;
+      font-family: 'Playfair Display', serif;
+      box-sizing: border-box;
+      margin-bottom: 0.2rem;
+      line-height: 1.5;
+    }
+    input[type="number"]:focus, select:focus, input[type="email"]:focus {
+      outline: none;
+      border-color: var(--dior-gold);
+    }
+    button {
+      margin: 2.2rem auto 1.2rem auto;
+      padding: 0.9rem 2.6rem;
+      font-size: 1.09rem;
+      background: var(--dior-white);
+      color: var(--dior-black);
+      border: 1.5px solid var(--dior-black);
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+      box-shadow: none;
+      display: block;
+    }
+    button:hover {
+      background: var(--dior-black);
+      color: var(--dior-white);
+      border-color: var(--dior-gold);
+    }
+    .advice, .explication {
+      background: var(--dior-grey);
+      border-left: 4px solid var(--dior-gold);
+      padding: 1.1rem 1.3rem;
+      margin-top: 1.5rem;
+      border-radius: 8px;
+      font-size: 1.02rem;
+      color: var(--dior-black);
+      font-family: 'Playfair Display', serif;
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+    .explication { border-color: var(--dior-black); }
+    .packs {
+      width:100%;max-width:440px;margin:2.5rem auto 0 auto;
+      display: flex; flex-direction: column; gap: 1.1rem;
+    }
+    .packs h2 { margin-bottom:0.7rem; }
+    .pack {
+      background: var(--dior-grey);
+      border-left:4px solid var(--dior-gold);
+      border-radius:8px;
+      padding:1rem 1.2rem;
+      line-height:1.6;
+      font-size:1.01rem;
+      margin-bottom:0.2rem;
+    }
+    .pack.panorama { border-color:#b7b7b7; }
+    .pack.prestige { border-color:#181818; }
+    .pack b { color:var(--dior-black);}
+    .chart-container {
+      max-width: 350px;
+      margin: 2rem auto 1rem auto;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .cta {
+      border-color: var(--dior-black);
+      background: var(--dior-white);
+      text-align: center;
+      font-size: 1.08rem;
+      margin-bottom: 1.2rem;
+      margin-top: 2.2rem;
+      font-family: 'Playfair Display', serif;
+      padding: 1.2rem;
+      border-radius: 10px;
+      border: 1px solid var(--dior-border);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.1rem;
+    }
+    .cta a {
+      display: inline-block;
+      min-width: 120px;
+      margin: 0.2em 0.6em 0 0.6em;
+      padding: 0.65em 1.3em;
+      border-radius: 6px;
+      border: 1.2px solid var(--dior-black);
+      background: var(--dior-white);
+      color: var(--dior-black);
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.08rem;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+    }
+    .cta a:hover {
+      background: var(--dior-black);
+      color: var(--dior-gold);
+      border-color: var(--dior-gold);
+      text-decoration: none;
+    }
+    @media (max-width: 600px) {
+      .container { padding: 1.2rem 0.3rem; }
+      h1 { font-size: 1.45rem; }
+      .chart-container { margin: 1.1rem auto 1rem auto; }
+      .cta { padding: 0.7rem; }
+    }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -35,24 +226,22 @@
       <button type="submit">Calculer mon offre</button>
     </form>
 
-    <div id="packs" style="width:100%;max-width:440px;margin:2.5rem auto 0 auto;">
-      <h2 style="margin-bottom:0.7rem;">Nos Packs</h2>
-      <div style="display:flex;flex-direction:column;gap:1.1rem;">
-        <div class="advice" style="border-left:4px solid #e6cfa7;">
-          <b>Pack Essentiel</b> :<br>
-          5 photos immobilières<br>
-          <b>Prix : 100 €</b>
-        </div>
-        <div class="advice" style="border-left:4px solid #b7b7b7;">
-          <b>Pack Panorama</b> :<br>
-          5 photos immobilières + 3 photos drone<br>
-          <b>Prix : 190 €</b>
-        </div>
-        <div class="advice" style="border-left:4px solid #181818;">
-          <b>Pack Prestige</b> :<br>
-          5 photos immobilières + 3 photos drone + vidéo drone<br>
-          <b>Prix : 240 €</b> <span style="color:#43a047;">(5% de réduction incluse)</span>
-        </div>
+    <div class="packs">
+      <h2>Nos Packs</h2>
+      <div class="pack essentiel">
+        <b>Pack Essentiel</b> :<br>
+        5 photos immobilières<br>
+        <b>Prix : 100 €</b>
+      </div>
+      <div class="pack panorama">
+        <b>Pack Panorama</b> :<br>
+        5 photos immobilières + 3 photos drone<br>
+        <b>Prix : 190 €</b>
+      </div>
+      <div class="pack prestige">
+        <b>Pack Prestige</b> :<br>
+        5 photos immobilières + 3 photos drone + vidéo drone<br>
+        <b>Prix : 240 €</b> <span style="color:#43a047;">(5% de réduction incluse)</span>
       </div>
     </div>
 
@@ -116,27 +305,70 @@
         suggestion = `<div class="advice" style="border-color:#43a047;">
           🎉 <b>Bravo !</b> Vous bénéficiez de notre <b>Pack Prestige</b> avec 5% de réduction.<br>
           C'est l'offre la plus complète pour sublimer votre bien.
-        </div>`;
+        </div>
+        <div style="height:1.5em"></div>
+        <a href="#" id="btnMail" class="cta" style="display:block;max-width:330px;margin:2.2em auto 0 auto;text-align:center;">Valider ma prestation par mail</a>
+        `;
       } else if (nbPhotos >= 5 && nbDrone >= 3 && !wantsVideo) {
         suggestion = `<div class="advice" style="border-color:#b7b7b7;">
           💡 <b>Astuce :</b> Pour une présentation encore plus immersive, optez pour notre <b>Pack Prestige</b> (ajoutez la vidéo drone pour seulement 60 € de plus et bénéficiez d'une réduction de 5%).
-        </div>`;
+        </div>
+        <div style="height:1.5em"></div>
+        <a href="#" id="btnMail" class="cta" style="display:block;max-width:330px;margin:2.2em auto 0 auto;text-align:center;">Valider ma prestation par mail</a>
+        `;
       } else if (nbPhotos >= 5 && nbDrone === 0 && !wantsVideo) {
         suggestion = `<div class="advice" style="border-color:#e6cfa7;">
           💡 <b>Astuce :</b> Essayez notre <b>Pack Panorama</b> pour profiter des vues aériennes et démarquer votre annonce.
-        </div>`;
+        </div>
+        <div style="height:1.5em"></div>
+        <a href="#" id="btnMail" class="cta" style="display:block;max-width:330px;margin:2.2em auto 0 auto;text-align:center;">Valider ma prestation par mail</a>
+        `;
       } else if (nbPhotos === 0 && nbDrone === 0 && !wantsVideo) {
         suggestion = `<div class="advice" style="border-color:#e6cfa7;">
           💡 <b>Conseil :</b> Découvrez nos packs pour une valorisation optimale de votre bien.<br>
           <b>Pack Essentiel</b> : 5 photos pro<br>
           <b>Pack Panorama</b> : 5 photos pro + 3 drone<br>
           <b>Pack Prestige</b> : 5 photos pro + 3 drone + vidéo drone<br>
-        </div>`;
+        </div>
+        <div style="height:1.5em"></div>
+        <a href="#" id="btnMail" class="cta" style="display:block;max-width:330px;margin:2.2em auto 0 auto;text-align:center;">Valider le pack découverte par mail</a>
+        `;
       } else if (wantsVideo && nbPhotos === 0 && nbDrone === 0) {
         suggestion = `<div class="advice" style="border-color:#e6cfa7;">
           💡 <b>Astuce :</b> La vidéo seule coûte 100 €. Ajoutez des photos classiques ou drone pour bénéficier d'une vidéo à 80 €, ou prenez le <b>Pack Prestige</b> pour la vidéo à 60 € !
-        </div>`;
+        </div>
+        <div style="height:1.5em"></div>
+        <a href="#" id="btnMail" class="cta" style="display:block;max-width:330px;margin:2.2em auto 0 auto;text-align:center;">Valider ma prestation par mail</a>
+        `;
+      } else {
+        suggestion = `<div style="height:1.5em"></div>
+        <a href="#" id="btnMail" class="cta" style="display:block;max-width:330px;margin:2.2em auto 0 auto;text-align:center;">Valider ma prestation par mail</a>
+        `;
       }
+
+      // Génération du mailto dynamique
+      let subject = "Demande de prestation 4D.RealEstate";
+      let body =
+`Bonjour,
+
+Merci d'avoir utilisé le configurateur 4D.RealEstate. Voici le récapitulatif de votre demande :
+
+- Photos classiques : ${nbPhotos} = ${prixPhoto} €
+- Photos drone : ${nbDrone} = ${prixDrone} €
+- Vidéo drone : ${wantsVideo ? 'Oui' : 'Non'} = ${prixVideo} €
+${reduction > 0 ? '- Réduction : -' + reduction.toFixed(2) + ' €\n' : ''}
+Prix total : ${total.toFixed(2)} €
+
+Nous restons à votre disposition pour toute question ou pour finaliser votre commande.
+
+Cordialement,
+L’équipe 4D.RealEstate
+realestate4d@hotmail.com
+Tél : 0492 269 359
+Instagram : https://www.instagram.com/4d.reality?igsh=MTZtZ2llYzJlZ2Focw==
+`;
+
+      mailtoLink = `mailto:realestate4d@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
       document.getElementById('resultat').innerHTML = `
         <h2>Résumé de votre prestation</h2>
@@ -147,6 +379,16 @@
         <h3>Prix total : <strong>${total.toFixed(2)} €</strong></h3>
         ${suggestion}
       `;
+
+      setTimeout(() => {
+        const btnMail = document.getElementById('btnMail');
+        if(btnMail) {
+          btnMail.onclick = function(e) {
+            e.preventDefault();
+            window.location.href = mailtoLink;
+          };
+        }
+      }, 100);
 
       // Graphique
       const ctx = document.getElementById('chart').getContext('2d');
