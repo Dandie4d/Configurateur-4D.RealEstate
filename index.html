@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4D.RealEstate - Configurateur de Prestations</title>
+  <title>4D.Reality - Configurateur de Prestations</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -347,11 +347,11 @@
       }
 
       // Génération du mailto dynamique
-      let subject = "Demande de prestation 4D.RealEstate";
+      let subject = "Demande de prestation 4D.Reality";
       let body =
 `Bonjour,
 
-Merci d'avoir utilisé le configurateur 4D.RealEstate. Voici le récapitulatif de votre demande :
+Merci d'avoir utilisé le configurateur 4D.Reality. Voici le récapitulatif de votre demande :
 
 - Photos classiques : ${nbPhotos} = ${prixPhoto} €
 - Photos drone : ${nbDrone} = ${prixDrone} €
@@ -362,13 +362,13 @@ Prix total : ${total.toFixed(2)} €
 Nous restons à votre disposition pour toute question ou pour finaliser votre commande.
 
 Cordialement,
-L’équipe 4D.RealEstate
-realestate4d@hotmail.com
+L’équipe 4D.Reality
+the4dreality@gmail.comd
 Tél : 0492 269 359
 Instagram : https://www.instagram.com/4d.reality?igsh=MTZtZ2llYzJlZ2Focw==
 `;
 
-      mailtoLink = `mailto:realestate4d@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      mailtoLink = `mailto:the4dreality@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
       document.getElementById('resultat').innerHTML = `
         <h2>Résumé de votre prestation</h2>
