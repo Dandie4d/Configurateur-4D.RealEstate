@@ -14,17 +14,33 @@
       --dior-border: #e5e5e5;
       --dior-shadow: 0 4px 24px rgba(0,0,0,0.04);
     }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: var(--dior-grey);
+    }
     body {
       font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
-      background: var(--dior-grey);
       color: var(--dior-black);
-      max-width: 600px;
-      margin: 3rem auto;
-      padding: 2.5rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      background-color: var(--dior-grey);
+    }
+    .container {
+      background: var(--dior-white);
       border-radius: 18px;
       box-shadow: var(--dior-shadow);
-      background-clip: padding-box;
-      background-color: var(--dior-white);
+      padding: 2.5rem 2.2rem 2.2rem 2.2rem;
+      max-width: 480px;
+      width: 100%;
+      margin: 3rem auto 2rem auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     h1, h2, h3 {
       font-weight: 700;
@@ -33,49 +49,58 @@
       margin-top: 0;
       margin-bottom: 1.5rem;
       color: var(--dior-black);
+      line-height: 1.25;
     }
-    h1 { font-size: 2.3rem; margin-bottom: 2.2rem; }
+    h1 { font-size: 2.1rem; margin-bottom: 2.1rem; }
     h2 { font-size: 1.3rem; margin-bottom: 1.2rem; }
     h3 { font-size: 1.1rem; margin-bottom: 1rem; }
     .intro {
       text-align: center;
       color: #444;
       font-size: 1.08rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.2rem;
+      line-height: 1.7;
       font-family: 'Playfair Display', serif;
+      max-width: 90%;
+    }
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
     }
     label {
-      display: block;
-      margin-top: 1.5rem;
-      margin-bottom: 0.2rem;
       font-weight: 700;
-      font-size: 0.98rem;
+      font-size: 0.99rem;
       letter-spacing: 0.04em;
       color: var(--dior-black);
       text-transform: uppercase;
+      margin-bottom: 0.3rem;
+      margin-top: 0.6rem;
+      line-height: 1.4;
     }
     input[type="number"], select, input[type="email"] {
       width: 100%;
-      padding: 0.6rem 0.9rem;
-      margin-top: 0.2rem;
+      padding: 0.7rem 1rem;
       border-radius: 6px;
       border: 1px solid var(--dior-border);
-      font-size: 1.1rem;
+      font-size: 1.08rem;
       background: var(--dior-white);
       color: var(--dior-black);
       transition: border 0.2s;
       font-family: 'Playfair Display', serif;
       box-sizing: border-box;
+      margin-bottom: 0.2rem;
+      line-height: 1.5;
     }
     input[type="number"]:focus, select:focus, input[type="email"]:focus {
       outline: none;
       border-color: var(--dior-gold);
     }
     button {
-      display: block;
-      margin: 2.5rem auto 1.5rem auto;
-      padding: 0.85rem 2.8rem;
-      font-size: 1.08rem;
+      margin: 2.2rem auto 1.2rem auto;
+      padding: 0.9rem 2.6rem;
+      font-size: 1.09rem;
       background: var(--dior-white);
       color: var(--dior-black);
       border: 1.5px solid var(--dior-black);
@@ -86,6 +111,7 @@
       letter-spacing: 0.04em;
       transition: background 0.2s, color 0.2s, border 0.2s;
       box-shadow: none;
+      display: block;
     }
     button:hover {
       background: var(--dior-black);
@@ -101,6 +127,8 @@
       font-size: 1.02rem;
       color: var(--dior-black);
       font-family: 'Playfair Display', serif;
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
     }
     .explication { border-color: var(--dior-black); }
     .cta {
@@ -115,11 +143,15 @@
       border-radius: 10px;
       border: 1px solid var(--dior-border);
       box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.1rem;
     }
     .cta a {
       display: inline-block;
       min-width: 120px;
-      margin: 0.5em 0.6em 0 0.6em;
+      margin: 0.2em 0.6em 0 0.6em;
       padding: 0.65em 1.3em;
       border-radius: 6px;
       border: 1.2px solid var(--dior-black);
@@ -140,46 +172,51 @@
     .chart-container {
       max-width: 350px;
       margin: 2rem auto 1rem auto;
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
     @media (max-width: 600px) {
-      body { padding: 1rem; }
-      .chart-container { width: 100% !important; }
-      button { width: 100%; margin: 0.5rem 0; }
-      .cta a { width: 100%; margin: 0.5em 0; }
+      .container { padding: 1.2rem 0.3rem; }
+      h1 { font-size: 1.45rem; }
+      .chart-container { margin: 1.1rem auto 1rem auto; }
+      .cta { padding: 0.7rem; }
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <h1>Configurateur Photo & Vidéo Immobilier</h1>
-  <div class="intro">
-    Calculez votre offre personnalisée en quelques secondes.<br>
-    <span style="color:#a38a5d;">Contactez-nous pour sublimer votre bien immobilier.</span>
-  </div>
+  <div class="container">
+    <h1>Configurateur Photo & Vidéo Immobilier</h1>
+    <div class="intro">
+      Calculez votre offre personnalisée en quelques secondes.<br>
+      <span style="color:#a38a5d;">Contactez-nous pour sublimer votre bien immobilier.</span>
+    </div>
 
-  <form id="configForm" autocomplete="off" onsubmit="event.preventDefault(); calculer();">
-    <label for="photos">Nombre de photos immobilières (20 €/photo)</label>
-    <input type="number" id="photos" min="0" value="5" placeholder="ex : 8" required>
+    <form id="configForm" autocomplete="off" onsubmit="event.preventDefault(); calculer();">
+      <label for="photos">Nombre de photos immobilières (20 €/photo)</label>
+      <input type="number" id="photos" min="0" value="5" placeholder="ex : 8" required>
 
-    <label for="drone">Nombre de photos drone (30 €/photo)</label>
-    <input type="number" id="drone" min="0" value="3" placeholder="ex : 3" required>
+      <label for="drone">Nombre de photos drone (30 €/photo)</label>
+      <input type="number" id="drone" min="0" value="3" placeholder="ex : 3" required>
 
-    <label for="video">Souhaitez-vous une vidéo drone ?</label>
-    <select id="video" required>
-      <option value="no">Non</option>
-      <option value="yes">Oui</option>
-    </select>
+      <label for="video">Souhaitez-vous une vidéo drone ?</label>
+      <select id="video" required>
+        <option value="no">Non</option>
+        <option value="yes">Oui</option>
+      </select>
 
-    <button type="submit">Calculer mon offre</button>
-  </form>
+      <button type="submit">Calculer mon offre</button>
+    </form>
 
-  <div id="resultat"></div>
-  <div class="chart-container">
-    <canvas id="chart" width="350" height="350"></canvas>
+    <div id="resultat"></div>
+    <div class="chart-container">
+      <canvas id="chart" width="350" height="350"></canvas>
+    </div>
   </div>
 
   <div class="cta" style="margin-top:3rem;">
-    <span style="font-size:1.15em; font-weight:700; letter-spacing:0.04em;">Contact direct</span><br>
+    <span style="font-size:1.15em; font-weight:700; letter-spacing:0.04em;">Contact direct</span>
     <a href="tel:0492269359">Appeler</a>
     <a href="https://www.instagram.com/4d.reality?igsh=MTZtZ2llYzJlZ2Focw==" target="_blank">Instagram</a>
   </div>
