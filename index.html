@@ -246,8 +246,8 @@
       let reduction = 0;
 
       if (nbPhotos >= 10 && nbDrone >= 3 && wantsVideo) {
-        reduction = 0.1 * total;
-        total = total * 0.9;
+        reduction = 0.05 * total;
+        total = total * 0.95;
       }
 
       // Génération du mail selon la demande
